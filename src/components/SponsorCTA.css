@@ -1,0 +1,157 @@
+.sponsor-cta {
+  padding: 4rem 2rem;
+  background-color: var(--bg);
+}
+
+.sponsor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-soft) 100%);
+  border-radius: 32px;
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.decorative-blob {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.blob-1 {
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  right: -50px;
+}
+
+.blob-2 {
+  width: 150px;
+  height: 150px;
+  bottom: -40px;
+  left: -40px;
+}
+
+.blob-3 {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  right: 10%;
+  opacity: 0.5;
+}
+
+.sponsor-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sponsor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
+.sponsor-heading {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sponsor-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.sponsor-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-gold {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  background-color: var(--gold);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.button-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: var(--gold-soft);
+}
+
+.button-outline {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.button-outline:hover {
+  background-color: white;
+  color: var(--burgundy);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sponsor-cta {
+    padding: 3rem 1rem;
+  }
+
+  .sponsor-container {
+    padding: 3rem 2rem;
+  }
+
+  .sponsor-heading {
+    font-size: 2rem;
+  }
+
+  .sponsor-description {
+    font-size: 1rem;
+  }
+
+  .sponsor-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-gold,
+  .button-outline {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
