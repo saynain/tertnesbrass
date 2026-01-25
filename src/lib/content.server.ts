@@ -1,5 +1,3 @@
-import { readFile } from 'fs/promises'
-import { join } from 'path'
 import type {
   Event,
   NewsItem,
@@ -10,17 +8,22 @@ import type {
   ContactInfo
 } from './content.types'
 
-const DATA_DIR = join(process.cwd(), 'public', 'data')
-
+// Use dynamic import to avoid bundling Node.js modules for browser
 async function readJSON<T>(filename: string): Promise<T | null> {
   try {
-    const filePath = join(DATA_DIR, filename)
+    // In development or SSR, read from filesystem
+    if (typeof process !== 'undefined' && process.versions?.node) {
+      const { readFile } = await import('fs/promises')
+      const { join } = await import('path')
+      const filePath = join(process.cwd(), 'public', 'data', filename)
+      const content = await readFile(filePath, 'utf-8')
+      return JSON.parse(content)
+    }
 
-    // Always read fresh from disk (no caching in dev)
-    const content = await readFile(filePath, 'utf-8')
-    const data = JSON.parse(content)
-
-    return data
+    // Fallback (shouldn't reach here in SSR context)
+    const response = await fetch(`/data/${filename}`)
+    if (!response.ok) throw new Error(`Failed to fetch ${filename}`)
+    return await response.json()
   } catch (error) {
     console.error(`Error loading ${filename}:`, error)
     return null
