@@ -1,7 +1,12 @@
 import { Link } from '@tanstack/react-router'
 import './SponsorCTA.css'
+import type { SponsorConfig } from '../lib/content.types'
 
-export default function SponsorCTA() {
+interface SponsorCTAProps {
+  config: SponsorConfig
+}
+
+export default function SponsorCTA({ config }: SponsorCTAProps) {
   return (
     <section className="sponsor-cta">
       <div className="sponsor-container">
@@ -10,12 +15,10 @@ export default function SponsorCTA() {
         <div className="decorative-blob blob-3"></div>
 
         <div className="sponsor-content">
-          <div className="sponsor-badge">❤️ Støtt kulturlivet</div>
-          <h2 className="sponsor-heading">Bli en del av laget vårt</h2>
+          <div className="sponsor-badge">{config.badge}</div>
+          <h2 className="sponsor-heading">{config.heading}</h2>
           <p className="sponsor-description">
-            Som sponsor bidrar du til å holde brassmusikken levende i Bergen.
-            Vi setter stor pris på støtte fra lokale bedrifter og enkeltpersoner
-            som tror på kraften i musikk og fellesskap.
+            {config.description}
           </p>
           <div className="sponsor-buttons">
             <Link to="/stott-oss" className="button-gold">

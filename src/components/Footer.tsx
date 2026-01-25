@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import './Footer.css'
+import type { SocialLink, ContactInfo } from '../lib/content.types'
 
 // Social Media Icon Components
 const FacebookIcon = () => (
@@ -38,15 +39,23 @@ const SpotifyIcon = () => (
   </svg>
 )
 
-export default function Footer() {
-  const socialLinks = [
-    { href: 'https://facebook.com/tertnesbr', icon: <FacebookIcon />, label: 'Facebook' },
-    { href: 'https://instagram.com/tertnesbrass', icon: <InstagramIcon />, label: 'Instagram' },
-    { href: 'https://x.com/TertnesBrass', icon: <XIcon />, label: 'X (Twitter)' },
-    { href: 'https://www.youtube.com/@tertnesbrass', icon: <YouTubeIcon />, label: 'YouTube' },
-    { href: 'https://soundcloud.com/tertnesbrass', icon: <SoundCloudIcon />, label: 'SoundCloud' },
-    { href: 'https://open.spotify.com/artist/4Zjbwup3aOmL8erBFGLT7C?si=nz92osMpTZ-B-RBvbtLQtQ', icon: <SpotifyIcon />, label: 'Spotify' },
-  ]
+interface FooterProps {
+  socialLinks: SocialLink[]
+  contactInfo: ContactInfo
+}
+
+export default function Footer({ socialLinks, contactInfo }: FooterProps) {
+  const getIcon = (platform: string) => {
+    const icons: Record<string, JSX.Element> = {
+      'Facebook': <FacebookIcon />,
+      'Instagram': <InstagramIcon />,
+      'Twitter': <XIcon />,
+      'YouTube': <YouTubeIcon />,
+      'SoundCloud': <SoundCloudIcon />,
+      'Spotify': <SpotifyIcon />
+    }
+    return icons[platform] || null
+  }
 
   return (
     <footer className="footer">
@@ -92,10 +101,9 @@ export default function Footer() {
           <div className="footer-column">
             <h4 className="footer-heading">Kontakt</h4>
             <ul className="footer-links">
-              <li><a href="mailto:post@tertnesbrass.no">post@tertnesbrass.no</a></li>
-              <li>Tertnes Kulturhus</li>
-              <li>5113 Tertnes</li>
-              <li>Bergen</li>
+              <li><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></li>
+              <li>{contactInfo.address}</li>
+              {contactInfo.phone && <li><a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></li>}
             </ul>
           </div>
         </div>
@@ -107,14 +115,14 @@ export default function Footer() {
           <div className="footer-social">
             {socialLinks.map((social) => (
               <a
-                key={social.label}
-                href={social.href}
+                key={social.platform}
+                href={social.url}
                 className="social-icon"
-                aria-label={social.label}
+                aria-label={social.platform}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {social.icon}
+                {getIcon(social.platform)}
               </a>
             ))}
           </div>

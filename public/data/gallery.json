@@ -1,0 +1,27 @@
+[
+  {
+    "image": "/images/gallery/photo-1.jpg",
+    "alt": "Tertnes Brass konsert",
+    "span": "2"
+  },
+  {
+    "image": "/images/gallery/photo-2.jpg",
+    "alt": "Tertnes Brass musikere",
+    "span": "2"
+  },
+  {
+    "image": "/images/gallery/photo-3.jpg",
+    "alt": "Tertnes Brass øvelse",
+    "span": "1"
+  },
+  {
+    "image": "/images/gallery/photo-4.jpg",
+    "alt": "Tertnes Brass fellesskap",
+    "span": "1"
+  },
+  {
+    "image": "/images/gallery/photo-5.jpg",
+    "alt": "Tertnes Brass sceneshow",
+    "span": "1"
+  }
+]

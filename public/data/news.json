@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Vi deltar på NM Brass",
+    "description": "I år stiller Tertnes Brass på NM Brass. Følg med for oppdateringer!",
+    "tag": "STEVNE",
+    "emoji": "🏆",
+    "featured": false,
+    "publishedAt": "2026-04-05T14:00:00",
+    "content": ""
+  },
+  {
+    "title": "Fantastisk vårkonsert i Grieghallen",
+    "description": "Over 400 tilskuere møtte opp til vår årlige vårkonsert i Grieghallen. Publikum fikk oppleve et variert program som spendte fra klassiske brassmesterverker til moderne arrangementer. En spesielt magisk kveld!",
+    "tag": "KONSERT",
+    "emoji": "📸",
+    "image": "",
+    "featured": true,
+    "publishedAt": "2026-03-16T19:00:00",
+    "content": ""
+  },
+  {
+    "title": "Nytt repertoar til våren",
+    "description": "Vi gleder oss til å presentere flere nye låter denne sesongen. Hold øynene åpne!",
+    "tag": "REPERTOAR",
+    "emoji": "🎵",
+    "featured": false,
+    "publishedAt": "2026-02-10T12:00:00",
+    "content": ""
+  },
+  {
+    "title": "Blåseweekend på hytta",
+    "description": "En fantastisk helg med musikk, moro og fellesskap. Neste år blir det enda bedre!",
+    "tag": "SOSIALT",
+    "emoji": "🏕️",
+    "featured": false,
+    "publishedAt": "2026-01-20T10:00:00",
+    "content": ""
+  }
+]

@@ -1,0 +1,106 @@
+backend:
+  name: github
+  repo: saynain/tertnesbrass
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "website/public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "no"
+
+collections:
+  # Events Collection
+  - name: "events"
+    label: "Arrangementer"
+    label_singular: "Arrangement"
+    folder: "website/content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - {label: "Tittel", name: "title", widget: "string"}
+      - {label: "Dato", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Sted", name: "venue", widget: "string"}
+      - {label: "Emoji", name: "emoji", widget: "string", default: "🎵"}
+      - {label: "Link", name: "link", widget: "string", default: "/program"}
+      - {label: "Publisert", name: "published", widget: "boolean", default: true}
+      - {label: "Beskrivelse", name: "body", widget: "markdown", required: false}
+
+  # News Collection
+  - name: "news"
+    label: "Nyheter"
+    label_singular: "Nyhet"
+    folder: "website/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - {label: "Tittel", name: "title", widget: "string"}
+      - {label: "Kort beskrivelse", name: "description", widget: "text"}
+      - {label: "Tag", name: "tag", widget: "select", options: ["KONSERT", "REPERTOAR", "STEVNE", "SOSIALT", "NYTT"]}
+      - {label: "Emoji", name: "emoji", widget: "string", default: "📢"}
+      - {label: "Bilde", name: "image", widget: "image", required: false}
+      - {label: "Fremhevet på forsiden", name: "featured", widget: "boolean", default: false}
+      - {label: "Publiseringsdato", name: "publishedAt", widget: "datetime"}
+      - {label: "Fullt innhold", name: "body", widget: "markdown", required: false}
+
+  # Gallery Collection
+  - name: "gallery"
+    label: "Galleri"
+    files:
+      - name: "images"
+        label: "Galleribilder"
+        file: "website/content/gallery/images.yml"
+        fields:
+          - label: "Bilder"
+            name: "images"
+            widget: "list"
+            fields:
+              - {label: "Bilde", name: "image", widget: "image"}
+              - {label: "Alt-tekst", name: "alt", widget: "string"}
+              - {label: "Størrelse", name: "span", widget: "select", options: ["1", "2"], default: "1"}
+
+  # Site Configuration
+  - name: "config"
+    label: "Nettstedsinnstillinger"
+    files:
+      - name: "hero"
+        label: "Hero-seksjon (Forside)"
+        file: "website/content/config/hero.yml"
+        fields:
+          - {label: "Badge-tekst", name: "badge", widget: "string"}
+          - {label: "Hovedoverskrift", name: "heading", widget: "text", hint: "Bruk <burgundy>ord</burgundy> for burgunder farge, <gold>ord</gold> for gullfarge"}
+          - {label: "Beskrivelse", name: "description", widget: "text"}
+          - label: "Statistikk"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Emoji", name: "emoji", widget: "string"}
+              - {label: "Tekst", name: "text", widget: "string"}
+
+      - name: "sponsor"
+        label: "Sponsor-seksjon"
+        file: "website/content/config/sponsor.yml"
+        fields:
+          - {label: "Badge-tekst", name: "badge", widget: "string"}
+          - {label: "Overskrift", name: "heading", widget: "string"}
+          - {label: "Beskrivelse", name: "description", widget: "text"}
+
+      - name: "social"
+        label: "Sosiale medier"
+        file: "website/content/config/social.yml"
+        fields:
+          - label: "Lenker"
+            name: "links"
+            widget: "list"
+            fields:
+              - {label: "Plattform", name: "platform", widget: "select", options: ["Facebook", "Instagram", "Twitter", "YouTube", "SoundCloud", "Spotify"]}
+              - {label: "URL", name: "url", widget: "string"}
+
+      - name: "contact"
+        label: "Kontaktinformasjon"
+        file: "website/content/config/contact.yml"
+        fields:
+          - {label: "E-post", name: "email", widget: "string"}
+          - {label: "Adresse", name: "address", widget: "text"}
+          - {label: "Telefon", name: "phone", widget: "string", required: false}

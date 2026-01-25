@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Vårkonsert",
+    "date": "2026-03-15",
+    "venue": "Grieghallen",
+    "emoji": "🌸",
+    "link": "/program",
+    "published": true,
+    "description": ""
+  },
+  {
+    "title": "17. mai-konsert",
+    "date": "2026-05-01",
+    "venue": "Torgallmenningen",
+    "emoji": "🎉",
+    "link": "/program",
+    "published": true,
+    "description": ""
+  },
+  {
+    "title": "Julekonsert",
+    "date": "2026-12-15",
+    "venue": "Laksevåg Kulturhus",
+    "emoji": "🎄",
+    "link": "/program",
+    "published": true,
+    "description": ""
+  }
+]

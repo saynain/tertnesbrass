@@ -1,27 +1,14 @@
 import { Link } from '@tanstack/react-router'
 import './NewsSection.css'
+import type { NewsItem } from '../lib/content.types'
 
-export default function NewsSection() {
-  const smallNews = [
-    {
-      emoji: '🎵',
-      tag: 'REPERTOAR',
-      title: 'Nytt repertoar til våren',
-      description: 'Vi gleder oss til å presentere flere nye låter denne våren.',
-    },
-    {
-      emoji: '🏆',
-      tag: 'STEVNE',
-      title: 'Vi deltar på NM Brass',
-      description: 'Korpset skal konkurrere i 3. divisjon i årets nasjonale mesterskap.',
-    },
-    {
-      emoji: '🏕️',
-      tag: 'SOSIALT',
-      title: 'Blåseweekend på hytta',
-      description: 'Påmelding er åpen for vår tradisjonelle blåseweekend i mars.',
-    },
-  ]
+interface NewsSectionProps {
+  news: NewsItem[]
+}
+
+export default function NewsSection({ news }: NewsSectionProps) {
+  const featuredNews = news.find(n => n.featured)
+  const regularNews = news.filter(n => !n.featured).slice(0, 3)
 
   return (
     <section className="news-section">
@@ -32,32 +19,32 @@ export default function NewsSection() {
         </div>
 
         <div className="news-grid">
-          <div className="featured-news">
-            <div className="featured-image">📸</div>
-            <div className="featured-content">
-              <span className="news-tag">KONSERT</span>
-              <h3 className="featured-title">
-                Fantastisk vårkonsert i Grieghallen
-              </h3>
-              <p className="featured-description">
-                Over 400 tilskuere møtte opp til vår årlige vårkonsert i Grieghallen.
-                Kvelden var fylt med vakker musikk, gode vibber og fantastisk stemning.
-                Takk til alle som kom!
-              </p>
-              <Link to="/nyheter" className="read-more-link">
-                Les mer →
-              </Link>
+          {featuredNews && (
+            <div className="featured-news">
+              <div className="featured-image">{featuredNews.emoji}</div>
+              <div className="featured-content">
+                <span className="news-tag">{featuredNews.tag}</span>
+                <h3 className="featured-title">
+                  {featuredNews.title}
+                </h3>
+                <p className="featured-description">
+                  {featuredNews.description}
+                </p>
+                <Link to="/nyheter" className="read-more-link">
+                  Les mer →
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="small-news">
-            {smallNews.map((news, index) => (
+            {regularNews.map((item, index) => (
               <div key={index} className="news-item">
-                <div className="news-icon">{news.emoji}</div>
+                <div className="news-icon">{item.emoji}</div>
                 <div className="news-item-content">
-                  <span className="news-tag">{news.tag}</span>
-                  <h4 className="news-item-title">{news.title}</h4>
-                  <p className="news-item-description">{news.description}</p>
+                  <span className="news-tag">{item.tag}</span>
+                  <h4 className="news-item-title">{item.title}</h4>
+                  <p className="news-item-description">{item.description}</p>
                 </div>
               </div>
             ))}

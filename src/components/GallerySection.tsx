@@ -1,15 +1,12 @@
 import { Link } from '@tanstack/react-router'
 import './GallerySection.css'
+import type { GalleryImage } from '../lib/content.types'
 
-export default function GallerySection() {
-  const galleryItems = [
-    { image: '/images/gallery/photo-1.jpg', alt: 'Tertnes Brass konsert', span: 2 },
-    { image: '/images/gallery/photo-2.jpg', alt: 'Tertnes Brass musikere', span: 2 },
-    { image: '/images/gallery/photo-3.jpg', alt: 'Tertnes Brass øvelse', span: 1 },
-    { image: '/images/gallery/photo-4.jpg', alt: 'Tertnes Brass arrangement', span: 1 },
-    { image: '/images/gallery/photo-5.jpg', alt: 'Tertnes Brass fellesskap', span: 2 },
-  ]
+interface GallerySectionProps {
+  images: GalleryImage[]
+}
 
+export default function GallerySection({ images }: GallerySectionProps) {
   return (
     <section className="gallery-section">
       <div className="gallery-container">
@@ -19,7 +16,7 @@ export default function GallerySection() {
         </div>
 
         <div className="gallery-grid">
-          {galleryItems.map((item, index) => (
+          {images.map((item, index) => (
             <div
               key={index}
               className="gallery-item"

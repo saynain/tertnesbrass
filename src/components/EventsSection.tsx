@@ -1,27 +1,16 @@
 import { Link } from '@tanstack/react-router'
 import './EventsSection.css'
+import type { Event } from '../lib/content.types'
 
-export default function EventsSection() {
-  const events = [
-    {
-      emoji: '🌸',
-      title: 'Vårkonsert',
-      date: '15. mars',
-      venue: 'Grieghallen',
-    },
-    {
-      emoji: '🎉',
-      title: '17. mai-konsert',
-      date: '1. mai',
-      venue: 'Torgallmenningen',
-    },
-    {
-      emoji: '🎄',
-      title: 'Julekonsert',
-      date: '15. desember',
-      venue: 'Laksevåg Kulturhus',
-    },
-  ]
+interface EventsSectionProps {
+  events: Event[]
+}
+
+export default function EventsSection({ events }: EventsSectionProps) {
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr)
+    return date.toLocaleDateString('no-NO', { day: 'numeric', month: 'long' })
+  }
 
   return (
     <section className="events-section">
@@ -32,16 +21,16 @@ export default function EventsSection() {
         </div>
 
         <div className="events-grid">
-          {events.map((event, index) => (
+          {events.slice(0, 3).map((event, index) => (
             <div key={index} className="event-card">
               <div className="event-emoji">{event.emoji}</div>
-              <div className="event-date">{event.date}</div>
+              <div className="event-date">{formatDate(event.date)}</div>
               <h3 className="event-title">{event.title}</h3>
               <div className="event-venue">
                 <span className="venue-icon">📍</span>
                 {event.venue}
               </div>
-              <Link to="/program" className="event-link">
+              <Link to={event.link} className="event-link">
                 Les mer →
               </Link>
             </div>

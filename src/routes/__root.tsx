@@ -9,6 +9,27 @@ import { ThemeProvider } from '../contexts/ThemeContext'
 import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
+  loader: async () => {
+    const { getSocialLinks, getContactInfo } = await import('../lib/content.server')
+
+    const [socialLinks, contactInfo] = await Promise.all([
+      getSocialLinks(),
+      getContactInfo()
+    ])
+    return { socialLinks, contactInfo }
+  },
+  staleTime: 0, // Disable caching in dev
+  notFoundComponent: () => {
+    return (
+      <div style={{ padding: '2rem', textAlign: 'center' }}>
+        <h1>404 - Siden finnes ikke</h1>
+        <p>Beklager, vi fant ikke siden du leter etter.</p>
+        <a href="/" style={{ color: '#8B4513', textDecoration: 'underline' }}>
+          Gå til forsiden
+        </a>
+      </div>
+    )
+  },
   head: () => ({
     meta: [
       {
@@ -64,6 +85,8 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const { socialLinks, contactInfo } = Route.useLoaderData()
+
   return (
     <html lang="no">
       <head>
@@ -73,7 +96,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <ThemeProvider>
           <Header />
           {children}
-          <Footer />
+          <Footer socialLinks={socialLinks} contactInfo={contactInfo} />
         </ThemeProvider>
         <TanStackDevtools
           config={{
