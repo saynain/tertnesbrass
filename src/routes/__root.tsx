@@ -23,7 +23,7 @@ export const Route = createRootRoute({
       },
       {
         name: 'description',
-        content: 'Tertnes Brass er et varmt og inkluderende brass band i Bergen. Siden 1977.',
+        content: 'Tertnes Brass er et varmt og inkluderende brass band i Bergen. Siden 1964.',
       },
     ],
     links: [

@@ -13,7 +13,7 @@ export default function NewsSection() {
       emoji: '🏆',
       tag: 'STEVNE',
       title: 'Vi deltar på NM Brass',
-      description: 'Korpset skal konkurrere i 3. divisjon i årets nasjonale mesterskap.',
+      description: 'Korpset konkurrerer i Elitedivisjonen, hvor vi har spilt siden 2018.',
     },
     {
       emoji: '🏕️',

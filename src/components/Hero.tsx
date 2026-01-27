@@ -10,7 +10,7 @@ export default function Hero() {
             <img
               src="/images/logo-380.png"
               srcSet="/images/logo-760.png 2x"
-              alt="Tertnes Brass - Bergen's premier brass band since 1977"
+              alt="Tertnes Brass - Bergen's premier brass band since 1964"
               width="380"
               height="380"
               className="hero-logo-image"
@@ -31,7 +31,7 @@ export default function Hero() {
             </div>
             <div className="stat-item">
               <span className="stat-emoji">🎵</span>
-              <span className="stat-text">48 år med musikk</span>
+              <span className="stat-text">61 år med musikk</span>
             </div>
             <div className="stat-item">
               <span className="stat-emoji">❤️</span>
@@ -48,7 +48,7 @@ export default function Hero() {
           </h1>
           <p className="hero-description">
             Tertnes Brass er mer enn bare et korps – vi er en familie som deler lidenskapen
-            for brassmusikk. Siden 1977 har vi skapt magiske øyeblikk gjennom musikk, vennskap
+            for brassmusikk. Siden 23. januar 1964 har vi skapt magiske øyeblikk gjennom musikk, vennskap
             og fellesskap i Bergen.
           </p>
           <div className="hero-buttons">
