@@ -23,7 +23,7 @@ export default function Header() {
           />
           <div className="logo-text">
             <div className="logo-name">Tertnes Brass</div>
-            <div className="logo-tagline">Bergen • Siden 1977</div>
+            <div className="logo-tagline">Bergen • Siden 1964</div>
           </div>
         </Link>
 

@@ -92,8 +92,8 @@ export default function Footer() {
           <div className="footer-column">
             <h4 className="footer-heading">Kontakt</h4>
             <ul className="footer-links">
-              <li><a href="mailto:post@tertnesbrass.no">post@tertnesbrass.no</a></li>
-              <li>Tertnes Kulturhus</li>
+              <li><a href="mailto:tb@tertnesbrass.no">tb@tertnesbrass.no</a></li>
+              <li>Tertnes Skole</li>
               <li>5113 Tertnes</li>
               <li>Bergen</li>
             </ul>
