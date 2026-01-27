@@ -4,22 +4,22 @@ import './EventsSection.css'
 export default function EventsSection() {
   const events = [
     {
-      emoji: '🌸',
-      title: 'Vårkonsert',
-      date: '15. mars',
-      venue: 'Grieghallen',
+      emoji: '🎵',
+      title: 'Før-NM Konsert',
+      date: '1. februar kl. 18:00',
+      venue: 'Åsatun Lagshuset, Nyborg',
     },
     {
-      emoji: '🎉',
-      title: '17. mai-konsert',
-      date: '1. mai',
-      venue: 'Torgallmenningen',
+      emoji: '❓',
+      title: 'Annonseres senere',
+      date: 'Dato kommer snart',
+      venue: 'Sted kommer snart',
     },
     {
-      emoji: '🎄',
-      title: 'Julekonsert',
-      date: '15. desember',
-      venue: 'Laksevåg Kulturhus',
+      emoji: '❓',
+      title: 'Annonseres senere',
+      date: 'Dato kommer snart',
+      venue: 'Sted kommer snart',
     },
   ]
 
