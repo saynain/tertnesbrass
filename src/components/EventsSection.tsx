@@ -1,27 +1,9 @@
-import { Link } from '@tanstack/react-router'
-import './EventsSection.css'
+import { Link } from '@tanstack/react-router';
+import { concerts } from '../data/concerts';
+import './EventsSection.css';
 
 export default function EventsSection() {
-  const events = [
-    {
-      emoji: '🌸',
-      title: 'Vårkonsert',
-      date: '15. mars',
-      venue: 'Grieghallen',
-    },
-    {
-      emoji: '🎉',
-      title: '17. mai-konsert',
-      date: '1. mai',
-      venue: 'Torgallmenningen',
-    },
-    {
-      emoji: '🎄',
-      title: 'Julekonsert',
-      date: '15. desember',
-      venue: 'Laksevåg Kulturhus',
-    },
-  ]
+  const featuredConcerts = concerts.slice(0, 3);
 
   return (
     <section className="events-section">
@@ -32,14 +14,26 @@ export default function EventsSection() {
         </div>
 
         <div className="events-grid">
-          {events.map((event, index) => (
-            <div key={index} className="event-card">
-              <div className="event-emoji">{event.emoji}</div>
-              <div className="event-date">{event.date}</div>
-              <h3 className="event-title">{event.title}</h3>
+          {featuredConcerts.map((concert) => (
+            <div key={concert.id} className="event-card">
+              {concert.image ? (
+                <img
+                  src={concert.image.src}
+                  srcSet={concert.image.srcSet}
+                  alt={concert.image.alt}
+                  width="380"
+                  height="240"
+                  className="event-image"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="event-emoji">{concert.emoji}</div>
+              )}
+              <div className="event-date">{concert.date}</div>
+              <h3 className="event-title">{concert.title}</h3>
               <div className="event-venue">
                 <span className="venue-icon">📍</span>
-                {event.venue}
+                {concert.venue}
               </div>
               <Link to="/program" className="event-link">
                 Les mer →
@@ -55,5 +49,5 @@ export default function EventsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
