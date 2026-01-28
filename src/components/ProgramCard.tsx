@@ -72,12 +72,18 @@ export function ProgramCard({ concert }: ProgramCardProps) {
                 <div className="detail-section">
                   <h4 className="detail-heading">Program</h4>
                   <ul className="program-list">
-                    {concert.program.map((piece, index) => (
-                      <li key={index} className="program-item">
-                        <strong>{piece.title}</strong>
-                        {piece.composer && (
-                          <span className="program-meta"> - {piece.composer}</span>
-                        )}
+                    {concert.program.map((item, index) => (
+                      <li
+                        key={index}
+                        className={`program-item ${item.type === 'band' ? 'program-band' : 'program-piece'}`}
+                      >
+                        {item.type === 'band' && <span className="band-icon">🎺</span>}
+                        <div className="program-content">
+                          <strong className="program-title">{item.title}</strong>
+                          {item.composer && (
+                            <span className="program-meta"> - {item.composer}</span>
+                          )}
+                        </div>
                       </li>
                     ))}
                   </ul>

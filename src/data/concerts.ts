@@ -1,4 +1,5 @@
 export interface ConcertProgram {
+  type: 'band' | 'piece';
   title: string;
   composer?: string;
   arranger?: string;
@@ -41,14 +42,14 @@ export const concerts: Concert[] = [
     },
     description: 'Tertnes Brass inviterer til før-NM konsert sammen med Fjell Brass og Rong Brass. Vi fremfører vårt konkurranseprogram før den nasjonale konkurransen.',
     program: [
-      { title: 'Fjell Brass', composer: 'dirigent Ben Hirons' },
-      { title: 'The Mermaid of Zennor', composer: 'Philip Harper' },
-      { title: 'Tertnes Brass', composer: 'dirigent Paul Holland' },
-      { title: 'Concerto No. 1 (Pliktnummer)', composer: 'Derek Bourgeois' },
-      { title: 'Rong Brass', composer: 'dirigent Ian Porthouse' },
-      { title: 'Afterlife', composer: 'Stijn Aertgeerts' },
-      { title: 'Tertnes Brass', composer: 'dirigent Paul Holland' },
-      { title: "Harrison's Dream (Selvvalgt)", composer: 'Peter Graham' },
+      { type: 'band', title: 'Fjell Brass', composer: 'dirigent Ben Hirons' },
+      { type: 'piece', title: 'The Mermaid of Zennor', composer: 'Philip Harper' },
+      { type: 'band', title: 'Tertnes Brass', composer: 'dirigent Paul Holland' },
+      { type: 'piece', title: 'Concerto No. 1 (Pliktnummer)', composer: 'Derek Bourgeois' },
+      { type: 'band', title: 'Rong Brass', composer: 'dirigent Ian Porthouse' },
+      { type: 'piece', title: 'Afterlife', composer: 'Stijn Aertgeerts' },
+      { type: 'band', title: 'Tertnes Brass', composer: 'dirigent Paul Holland' },
+      { type: 'piece', title: "Harrison's Dream (Selvvalgt)", composer: 'Peter Graham' },
     ],
     ticketPrice: '150 kr',
     childrenFree: true,
