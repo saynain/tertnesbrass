@@ -1,0 +1,245 @@
+.program-card {
+  background-color: var(--card);
+  border-radius: 24px;
+  box-shadow: 0 4px 16px var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.program-card.expanded {
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.program-card-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.program-card-header:hover {
+  background-color: var(--bg-warm);
+}
+
+.program-card-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.program-card-image {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.program-card-emoji {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background-color: var(--gold-pastel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.program-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.program-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.program-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.expand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--burgundy-pastel);
+  color: var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.program-card-header:hover .expand-icon {
+  background-color: var(--burgundy);
+  color: white;
+  transform: scale(1.1);
+}
+
+.program-card-details {
+  padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+  border-top: 1px solid var(--burgundy-pastel);
+  animation: expandDown 0.3s ease;
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detail-section {
+  margin-top: var(--spacing-md);
+}
+
+.detail-section:first-child {
+  margin-top: var(--spacing-lg);
+}
+
+.detail-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.concert-description {
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.program-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.program-item {
+  padding: var(--spacing-sm);
+  background-color: var(--bg-warm);
+  border-radius: 8px;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text);
+}
+
+.program-item:last-child {
+  margin-bottom: 0;
+}
+
+.program-meta {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.extra-info {
+  margin-top: var(--spacing-sm);
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.ticket-info {
+  color: var(--text-soft);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.ticket-price {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ticket-note {
+  color: var(--text-muted);
+}
+
+.facebook-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--burgundy-pastel);
+  color: var(--burgundy);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+}
+
+.facebook-link:hover {
+  background-color: var(--burgundy);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.tba-message {
+  padding: var(--spacing-lg);
+  text-align: center;
+  background-color: var(--bg-warm);
+  border-radius: 12px;
+  margin-top: var(--spacing-lg);
+}
+
+.tba-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.tba-description {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .program-card-preview {
+    flex-wrap: wrap;
+  }
+
+  .program-card-image,
+  .program-card-emoji {
+    width: 100%;
+    height: 160px;
+  }
+
+  .program-card-info {
+    width: 100%;
+  }
+
+  .expand-icon {
+    margin-left: auto;
+  }
+
+  .program-card-meta {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+}
