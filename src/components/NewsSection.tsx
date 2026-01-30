@@ -7,19 +7,19 @@ export default function NewsSection() {
       emoji: '🎵',
       tag: 'REPERTOAR',
       title: 'Nytt repertoar til våren',
-      description: 'Vi gleder oss til å presentere flere nye låter denne våren.',
+      description: 'Vi gleder oss til å presentere et spennende repertoar til konserter denne våren.',
     },
     {
       emoji: '🏆',
-      tag: 'STEVNE',
+      tag: 'KONKURRANSE',
       title: 'Vi deltar på NM Brass',
-      description: 'Korpset konkurrerer i Elitedivisjonen, hvor vi har spilt siden 2018.',
+      description: 'Korpset konkurrerer i Elitedivisjonen i NM Brass, hvor vi har spilt siden 2018.',
     },
     {
-      emoji: '🏕️',
+      emoji: '🎊',
       tag: 'SOSIALT',
-      title: 'Blåseweekend på hytta',
-      description: 'Påmelding er åpen for vår tradisjonelle blåseweekend i mars.',
+      title: 'Nyttårsbord under NM-oppkjøring',
+      description: 'Vi arrangerte nyttårsbord under første seminar-helg i NM-oppkjøringen 💃',
     },
   ]
 
@@ -37,12 +37,11 @@ export default function NewsSection() {
             <div className="featured-content">
               <span className="news-tag">KONSERT</span>
               <h3 className="featured-title">
-                Fantastisk vårkonsert i Grieghallen
+                3.plass i Siddis Brass 2025
               </h3>
               <p className="featured-description">
-                Over 400 tilskuere møtte opp til vår årlige vårkonsert i Grieghallen.
-                Kvelden var fylt med vakker musikk, gode vibber og fantastisk stemning.
-                Takk til alle som kom!
+                Korpset presterte bra under Siddis Brass 2025 og ble belønnet med en 3.plass.
+                Takk til alle som kom og hørte på!
               </p>
               <Link to="/nyheter" className="read-more-link">
                 Les mer →
