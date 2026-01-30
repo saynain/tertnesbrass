@@ -65,7 +65,7 @@ export default function Footer() {
               <div className="footer-logo-text">Tertnes Brass</div>
             </div>
             <p className="footer-description">
-              Et varmt og inkluderende brass band i Bergen. Vi øver hver onsdag og ser frem til å møte deg! 🎺
+              Et varmt og inkluderende brass band i Bergen.
             </p>
           </div>
 
