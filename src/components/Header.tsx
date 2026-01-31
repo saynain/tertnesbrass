@@ -7,7 +7,10 @@ import './Header.css'
 
 export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
+
+  const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
     <header className="header">
@@ -67,7 +70,71 @@ export default function Header() {
               <div className="theme-toggle-knob" />
             </div>
           </button>
-          <Link to="/bli-medlem" className="cta-button">
+          <Link to="/bli-medlem" className="cta-button desktop-cta">
+            Bli medlem
+          </Link>
+          <button
+            className="hamburger-button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Lukk meny' : 'Åpne meny'}
+            aria-expanded={mobileMenuOpen}
+          >
+            <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`} />
+            <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`} />
+            <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`} />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu-overlay" onClick={closeMobileMenu} />
+      )}
+
+      {/* Mobile Menu Panel */}
+      <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-header">
+          <span className="mobile-menu-title">Meny</span>
+          <button
+            className="mobile-menu-close"
+            onClick={closeMobileMenu}
+            aria-label="Lukk meny"
+          >
+            ×
+          </button>
+        </div>
+        <nav className="mobile-nav">
+          <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Hjem
+          </Link>
+          <Link to="/program" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Program
+          </Link>
+          <Link to="/nyheter" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Nyheter
+          </Link>
+          <Link to="/medlemmer" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Medlemmer
+          </Link>
+          <Link to="/styret" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Styret
+          </Link>
+          <Link to="/om-oss" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Om oss
+          </Link>
+          <div className="mobile-nav-divider" />
+          <Link to="/bli-medlem" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Bli medlem
+          </Link>
+          <Link to="/stott-oss" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Støtt oss
+          </Link>
+          <Link to="/kontakt" className="mobile-nav-link" onClick={closeMobileMenu}>
+            Kontakt
+          </Link>
+        </nav>
+        <div className="mobile-menu-footer">
+          <Link to="/bli-medlem" className="cta-button mobile-cta" onClick={closeMobileMenu}>
             Bli medlem
           </Link>
         </div>
